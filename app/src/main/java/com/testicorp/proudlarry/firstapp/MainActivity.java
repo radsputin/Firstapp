@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
         // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
+        // primar y sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
@@ -127,7 +127,17 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+            switch (position) {
+                case 0:
+                    return new HelloWorldFragment();
+                case 1:
+                    return PlaceholderFragment.newInstance(position + 1);
+                case 2:
+                    return PlaceholderFragment.newInstance(position + 1);
+                default:
+                    // Should never happen unless you have more than 3 tabs
+                    return PlaceholderFragment.newInstance(position + 1);
+            }
         }
 
         @Override
